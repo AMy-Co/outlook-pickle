@@ -88,13 +88,13 @@ Sub process_this_message()
     Set WshShell = CreateObject("WScript.Shell")
     Set oShellLink = WshShell.CreateShortcut(base_folder & "\" & save_folder & "\SDrive_" & job_number & ".lnk")
     'MsgBox oShellLink '<---Uncomment for testing
-    oShellLink.TargetPath = "\\fs007\jobs\DOM\Ltg_Projects\Projects" & Left(job_number, 4) & "\" & job_number
-    'MsgBox "\\fs007\jobs\DOM\Ltg_Projects\Projects" & Left(job_number, 4) & "\" & job_number '<---Uncomment for testing
+    oShellLink.TargetPath = "\\intra.lutron.com\dfs01\cb\jobs\DOM\Ltg_Projects\Projects" & Left(job_number, 4) & "\" & job_number
+    'MsgBox "\\intra.lutron.com\dfs01\cb\jobs\DOM\Ltg_Projects\Projects" & Left(job_number, 4) & "\" & job_number '<---Uncomment for testing
     oShellLink.WindowStyle = 1
     'MsgBox oShellLink.WindowStyle '<---Uncomment for testing
     oShellLink.Description = job_number & " S Drive Shortcut"
     'MsgBox oShellLink.Description '<---Uncomment for testing
-    oShellLink.WorkingDirectory = "\\fs007\jobs\DOM\Ltg_Projects\Projects" & Left(job_number, 4)
+    oShellLink.WorkingDirectory = "\\intra.lutron.com\dfs01\cb\jobs\DOM\Ltg_Projects\Projects" & Left(job_number, 4)
     'MsgBox oShellLink.WorkingDirectory '<---Uncomment for testing
     oShellLink.Save
     '</--Create SDrive Shortcut-->
