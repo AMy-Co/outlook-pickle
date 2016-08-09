@@ -33,18 +33,18 @@ Sub process_this_message()
   
     Set new_msg = GetCurrentItem()
     Dim msg_att As Outlook.Attachment
-    Dim base_folder, save_folder, msg_subj As String
+    Dim save_folder, msg_subj As String
     
     msg_subj = new_msg.Subject
     'MsgBox "msg_subj: " & msg_subj '<---Uncomment for testing
    
     save_folder = msg_subj
     
-     job_number = Mid(msg_subj, (InStr(msg_subj, ",") + 2), 7)
-     wo_number = Mid(msg_subj, (InStr(msg_subj, "WO") + 3), 8)
-     job_name = Left(msg_subj, (InStr(msg_subj, ",")) - 1)
+     job_number = Mid(msg_subj, (InStr(msg_subj, "WO-") - 11), 7)
+     wo_number = Mid(msg_subj, (InStr(msg_subj, "WO-") + 3), 8)
+     job_name = Left(msg_subj, (InStr(msg_subj, "WO-")) - 14)
      save_folder = "JN " & job_number & " WO# " & wo_number & " " & job_name
-    'MsgBox "JN " & job_number & " WO# " & wo_number & " " & job_name
+    MsgBox "JN: " & job_number & " WO#: " & wo_number & " JOB NAME: " & job_name
     
     save_folder = Replace(save_folder, "Lutron Service Confirmation: ", "") 'remove  Lutron Service Confirmation from SAVE_FOLDER
     save_folder = Replace(save_folder, ":", "") 'remove colons from SAVE_FOLDER
@@ -84,7 +84,3 @@ Sub process_this_message()
     '</--Create SDrive Shortcut-->
     
 End Sub
-
-
-
-
